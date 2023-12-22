@@ -1,0 +1,28 @@
+[package]
+edition = "2021"
+name = "matcher"
+version = "0.1.0"
+
+[lib]
+name = "matcher_lib"
+path = "src/lib.rs"
+
+[dependencies]
+# time
+chrono = "0.4"
+
+# hash
+hex = "0.4"
+md-5 = "0.10"
+sha2 = "0.10"
+
+# logs
+log = {version = "0.4", features = ["std"]}
+
+# json
+serde = {version = "1.0", features = ["derive"]}
+serde_json = {version = "1.0", features = ["raw_value"]}
+
+evalexpr = {version = "11", features = ["serde_support"]}
+filesize = "0.2"
+thiserror = "1.0"

@@ -1,0 +1,23 @@
+[target.i686-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.x86_64-apple-darwin]
+rustflags=["-C", "link-arg=-mmacosx-version-min=10.10"]
+
+[target.aarch64-apple-darwin]
+rustflags=["-C", "link-arg=-mmacosx-version-min=11.0"]
+
+[profile.release-apple]
+inherits = "release"
+rpath = true
+debug = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+debug = true

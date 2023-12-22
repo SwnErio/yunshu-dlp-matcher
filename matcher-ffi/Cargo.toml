@@ -1,0 +1,21 @@
+[package]
+name = "matcher-ffi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib", "cdylib"]
+name = "matcher"
+path = "src/lib.rs"
+
+[dependencies]
+chrono = "0.4"
+matcher = {path = "../matcher"}
+
+# logs
+log = {version = "0.4", features = ["std"]}
+log-panics = {version = "2", features = ["with-backtrace"]}
+log4rs = {version = "1", features = ["rolling_file_appender", "compound_policy", "size_trigger", "fixed_window_roller", "pattern_encoder"]}
+
+[build-dependencies]
+bindgen = "0.69"
